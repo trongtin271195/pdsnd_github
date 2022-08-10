@@ -24,10 +24,11 @@ def get_filters():
 
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
-        city = input("Please enter city name: ")
-        city = city.lower()
+        city = input("Please enter city name: ").lower()
+
         if city in CITY_DATA.keys():
             break
+
         print(f"'{city}' has not supported yet.\n")
         print(
             f"Please try with following cities: {[x for x in CITY_DATA.keys()]}")
@@ -35,8 +36,8 @@ def get_filters():
     # get user input for month (all, january, february, ... , june)
     while True:
         month = input(
-            "Please input filtering month (all, january, february, ... , june): ")
-        month = month.lower()
+            "Please input filtering month (all, january, february, ... , june): ").lower()
+
         if month in MONTH_DATA or month in [x[:3] for x in MONTH_DATA]:
             if month == 'all':
                 months = [i+1 for i, _ in enumerate(MONTH_DATA[1:])]
@@ -46,13 +47,14 @@ def get_filters():
             else:
                 months = [i for i, x in enumerate(MONTH_DATA) if x == month]
             break
+
         print(f"'{month}' is invalid.\n")
 
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         dow = input(
-            "Please input filtering day of week (all, monday, tuesday, ... sunday):")
-        dow = dow.lower()
+            "Please input filtering day of week (all, monday, tuesday, ... sunday):").lower()
+
         if dow in DOW_DATA or dow in [x[:3] for x in DOW_DATA]:
             if dow == 'all':
                 dows = [i for i, _ in enumerate(DOW_DATA[:7])]
@@ -61,6 +63,7 @@ def get_filters():
             else:
                 dows = [i for i, x in enumerate(DOW_DATA) if x == dow]
             break
+        
         print(f"'{dow}' is invalid.\n")
 
     print(f"'{city}' will be filterd with months ({months}) and day of week ({dows})")
