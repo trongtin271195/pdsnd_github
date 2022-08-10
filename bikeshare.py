@@ -24,8 +24,7 @@ def get_filters():
 
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
-        city = input("Please enter city name: ")
-        city = city.lower()
+        city = input("Please enter city name: ").lower()
         if city in CITY_DATA.keys():
             break
         print(f"'{city}' has not supported yet.\n")
@@ -35,8 +34,7 @@ def get_filters():
     # get user input for month (all, january, february, ... , june)
     while True:
         month = input(
-            "Please input filtering month (all, january, february, ... , june): ")
-        month = month.lower()
+            "Please input filtering month (all, january, february, ... , june): ").lower()
         if month in MONTH_DATA or month in [x[:3] for x in MONTH_DATA]:
             if month == 'all':
                 months = [i+1 for i, _ in enumerate(MONTH_DATA[1:])]
